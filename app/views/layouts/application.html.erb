@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FacepageAuthTest</title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<!-- START_HIGHLIGHT -->
+<body class='<%= controller.controller_name %>'>
+<!-- END_HIGHLIGHT -->
+<div id="banner">
+  <%= image_tag("logo.png", size: "105") %>
+  <%= @page_title || "Facepage" %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+</div>
+<div id="columns">
+  <!--span><%#= last_visit %></span-->
+  <div id="side">
+    <ul>
+      <li><a href="<%=main_index_url%>">Home</a></li>
+      <li><a href="http://www..../profile">Profile</a></li>
+      <li><a href="http://www..../friends">Friends</a></li>
+      <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+      <li><span><%= last_visit %></span></li>
+    </ul>
+  </div>
+  <div id="main">
+    <%= yield %>
+    <%#= render 'layouts/user_widget' %>
+  </div>
+</div>
+</body>
+<%cookies[:the_time] = Time.now.to_i%>
+<%#cookies[:the_time] = 125.days.ago.to_i%>
+</html>
