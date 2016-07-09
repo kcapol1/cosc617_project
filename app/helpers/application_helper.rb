@@ -11,7 +11,7 @@ module ApplicationHelper
         render(:text => "Your last visit was too long ago #{tmp}" )
       end
     else
-      render(:text => "Welcome!" )
+      #render(:text => "Welcome!" )
     end
   end
 

@@ -17,8 +17,8 @@ class MainController < ApplicationController
 
   def index
     unless user_signed_in?
- #          redirect_to(main_logout_url)
-          redirect("layouts/user_widget")
+           redirect_to(main_logout_url)
+ #         redirect("layouts/user_widget")
     end
   end
 end

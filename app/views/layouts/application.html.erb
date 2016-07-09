@@ -15,8 +15,14 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 </div>
+<div id="greeting">
+  <% if user_signed_in? %>
+      <p> Welcome <%= current_user.email %>&nbsp;&nbsp;<%= last_visit %></p>
+  <% else %>
+      <p>You are not signed in.</p>
+  <% end %>
+</div>
 <div id="columns">
-  <!--span><%#= last_visit %></span-->
   <div id="side">
     <ul>
       <li><a href="<%=main_index_url%>">Home</a></li>
@@ -25,7 +31,6 @@
       <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
       <li>&nbsp;</li>
       <li>&nbsp;</li>
-      <li><span><%= last_visit %></span></li>
     </ul>
   </div>
   <div id="main">
